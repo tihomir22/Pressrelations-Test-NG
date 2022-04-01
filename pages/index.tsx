@@ -68,6 +68,10 @@ export default function Home() {
     loadNews(null, query);
   }
 
+  function openNew(newsObject: News) {
+    window.open(newsObject.url, "_blank");
+  }
+
   useEffect(() => {
     loadNews();
   }, []);
@@ -112,7 +116,11 @@ export default function Home() {
                       <p className="ellipsis description">{newsObject.snippet}</p>
                     </div>
                   }
-                  actions={[<EyeOutlined />, <EditOutlined key="edit" />, <EllipsisOutlined key="ellipsis" />]}
+                  actions={[
+                    <EyeOutlined key="view" onClick={() => openNew(newsObject)} />,
+                    <EditOutlined key="edit" />,
+                    <EllipsisOutlined key="ellipsis" />,
+                  ]}
                 >
                   <Meta
                     key={index}
