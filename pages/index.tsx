@@ -99,6 +99,7 @@ export default function Home() {
                   cover={
                     <div style={{ overflow: "hidden" }}>
                       <Image
+                        key={index}
                         src={newsObject?.image || "error"}
                         fallback={"/vercel.svg"}
                         alt={newsObject.headline}
@@ -114,6 +115,7 @@ export default function Home() {
                   actions={[<EyeOutlined />, <EditOutlined key="edit" />, <EllipsisOutlined key="ellipsis" />]}
                 >
                   <Meta
+                    key={index}
                     avatar={<Avatar src={newsObject.publication["logo_url"]} />}
                     title={newsObject.publication["name"]}
                     description={
